@@ -1,18 +1,20 @@
 package edu.uga.devdogs.course_information.Course;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
+import edu.uga.devdogs.course_information.webscraping.Course;
 
 import java.util.List;
 
 public interface CourseRepository extends JpaRepository<Course, Long>{
 
     //This will get a course by its unique ID
-    Course findById(Long id);
+    Optional<Course> findById(Long id);
 
     // This will get a course by its title
     Course findByTitle(String title);
@@ -51,5 +53,7 @@ public interface CourseRepository extends JpaRepository<Course, Long>{
     //The default findAll isn't compatible with a list as a parameter.
     @Query("SELECT c FROM Course c WHERE :semester MEMBER OF c.semesters")
     List<Course> findAllBySemester(@Param("semester") String semesters);
+
+    //This will get a list of courses by the amount of credit hours they are.
     List<Course> findAllCoursesByCreditHours(double creditHours);
 }

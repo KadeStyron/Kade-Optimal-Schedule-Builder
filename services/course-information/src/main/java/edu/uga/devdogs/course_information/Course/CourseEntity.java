@@ -1,9 +1,11 @@
 package edu.uga.devdogs.course_information.Course;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 import jakarta.persistence.CascadeType;
 import edu.uga.devdogs.course_information.CourseSection.CourseSection;
+// import edu.uga.devdogs.course_information.Course.Course; // Removed as it does not exist
 import jakarta.persistence.Column;
 import jakarta.persistence.ElementCollection;
 import jakarta.persistence.Entity;
@@ -15,16 +17,13 @@ import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToMany;
 
-import java.io.Serializable;
-import java.util.List;
 import org.hibernate.annotations.ManyToAny;
 
-    import edu.uga.devdogs.course_information.CourseSection.CourseSection;
 
-
+// Java JPA entity represention for Class
 @Entity
-public class Course implements Serializable {
-    //Variables
+public class CourseEntity implements Serializable {
+    // Variables
     @Id
     @GeneratedValue
     @Column(name = "course_id")
@@ -69,7 +68,7 @@ public class Course implements Serializable {
 
     private String gradingSystem;
 
-    public Course(long courseId, String subject, String courseNumber, String title, String department,
+    public CourseEntity(long courseId, String subject, String courseNumber, String title, String department,
             List<CourseSection> courseSections, String courseDescription, String athenaTitle,
             List<Course> equivalentCourses, List<Course> prerequisiteCourses, List<String> semesters,
             String gradingSystem) {
@@ -136,12 +135,12 @@ public class Course implements Serializable {
     }
 
     //Constructors, getters, setters...
-    public Course() {
-
+    public CourseEntity() {
+    
     }
-
+    
     //constructor for course
-    public Course(String subject, String courseNumber, String title, String department, List<CourseSection> courseSections) {
+    public CourseEntity(String subject, String courseNumber, String title, String department, List<CourseSection> courseSections) {
         this.subject = subject;
         this.courseNumber = courseNumber;
         this.title = title;
@@ -150,9 +149,9 @@ public class Course implements Serializable {
         this.equivalentCourses = new ArrayList<>();
         this.prerequisiteCourses = new ArrayList<>();
     }
-
+    
     //constructor for course with id
-    public Course(long courseId, String subject, String courseNumber, String title, String department, List<CourseSection> courseSections) {
+    public CourseEntity(long courseId, String subject, String courseNumber, String title, String department, List<CourseSection> courseSections) {
         this.courseId = courseId;
         this.subject = subject;
         this.courseNumber = courseNumber;

@@ -12,6 +12,8 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 
+
+// Java JPA entity represention for CourseSection
 @Entity
 public class CourseSection implements Serializable {
     // Variables
@@ -39,6 +41,7 @@ public class CourseSection implements Serializable {
 
     private int year;
 
+<<<<<<<< HEAD:services/course-information/src/main/java/edu/uga/devdogs/course_information/CourseSection/CourseSection.java
     // Relationships
     @ManyToOne
     @JoinColumn(name = "courseId")
@@ -48,6 +51,18 @@ public class CourseSection implements Serializable {
 
     // Constructors, getters, setters, and toString 
     public CourseSection() {}
+========
+    /*
+     * Relationships (not yet created)
+     * To-Do: add relationships (one-to-one, one-to-many, many-to-one, many-to-many) here
+     */
+
+    /*
+     * Constructors
+     */
+
+    public CourseSectionEntity() {}
+>>>>>>>> 0a56d5a (Verified good DB design):services/course-information/src/main/java/edu/uga/devdogs/course_information/CourseSection/CourseSectionEntity.java
 
     public CourseSection(long courseSectionId, int crn, int sec, char stat, double creditHoursLow,
             double creditHoursHigh, String instructor, int term, int classSize, int seatsAvailable, int year, Course course, List<Class> classes) {
@@ -81,6 +96,10 @@ public class CourseSection implements Serializable {
         this.course = course;
         this.classes = classes;
     }
+
+    /*
+    * Getters and Setters
+    */
 
     public long getId() {
         return courseSectionId;
@@ -170,6 +189,7 @@ public class CourseSection implements Serializable {
         this.year = year;
     }
 
+<<<<<<<< HEAD:services/course-information/src/main/java/edu/uga/devdogs/course_information/CourseSection/CourseSection.java
     public Course getCourse() {
         return course;
     }
@@ -185,6 +205,11 @@ public class CourseSection implements Serializable {
     public void setClasses(List<Class> classes) {
         this.classes = classes;
     }
+========
+    /*
+     * toString
+     */
+>>>>>>>> 0a56d5a (Verified good DB design):services/course-information/src/main/java/edu/uga/devdogs/course_information/CourseSection/CourseSectionEntity.java
 
     @Override
     public String toString() {

@@ -11,16 +11,16 @@ import java.io.Serializable;
 import edu.uga.devdogs.course_information.Building.Building;
 import edu.uga.devdogs.course_information.CourseSection.CourseSection;
 
+import edu.uga.devdogs.course_information.Building.Building;
+import edu.uga.devdogs.course_information.CourseSection.CourseSection;
+
+
 /*
  * Java JPA entity represention for Class
  */
 @Entity
-public class Class implements Serializable{
-    
-    /*
-     * Variables
-     */
-
+public class ClassEntity implements Serializable{
+    // Variables
     @Id
     @GeneratedValue
     private int classId;
@@ -36,7 +36,7 @@ public class Class implements Serializable{
     private String campus;
 
     /*
-     * Relationships
+     * Relationships (not yet created)
      * To-Do: add relationships (one-to-one, one-to-many, many-to-one, many-to-many) here
      */
 
@@ -52,11 +52,11 @@ public class Class implements Serializable{
       */
     
      // Default constructor
-     public Class() {
+     public ClassEntity() {
      }
 
      // Constructor w/o classID
-     public Class(String days, java.sql.Time startTime, java.sql.Time endTime, Building building, String room, String campus, CourseSection courseSection) {
+     public ClassEntity(String days, java.sql.Time startTime, java.sql.Time endTime, String building, String room, String campus) {
          this.days = days;
          this.startTime = startTime;
          this.endTime = endTime;
@@ -67,7 +67,7 @@ public class Class implements Serializable{
      }
 
      // Constructor w/ classID
-     public Class(int classId, String days, java.sql.Time startTime, java.sql.Time endTime, Building building, String room, String campus, CourseSection courseSection) {
+     public ClassEntity(int classId, String days, java.sql.Time startTime, java.sql.Time endTime, String building, String room, String campus) {
          this.classId = classId;
          this.days = days;
          this.startTime = startTime;
